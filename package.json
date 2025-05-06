@@ -3,16 +3,16 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "dev": "next dev",
-    "build": "read-scripts build",
-    "start": "read-scripts start",
-    "test": "read-scripts test",
-    "eject": "read-scripts eject",
-    "lint": "next lint"
-  },
+"scripts": {
+  "predeploy": "next build",
+  "deploy": "gh-pages -d out",
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "test": "next test",
+  "eject": "next eject",
+  "lint": "next lint"
+},
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",
