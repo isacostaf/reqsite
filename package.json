@@ -1,18 +1,14 @@
 {
-  "homepage": "http://isacostaf.github.io/reqsite",
-  "name": "my-v0-project",
-  "version": "0.1.0",
+"homepage": "https://isacostaf.github.io/reqsite",
   "private": true,
-"scripts": {
-  "predeploy": "next build",
-  "deploy": "gh-pages -d out",
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "test": "next test",
-  "eject": "next eject",
-  "lint": "next lint"
-},
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",

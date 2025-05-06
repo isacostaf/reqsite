@@ -1,19 +1,13 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
-  output: 'export',
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  reactStrictMode: true,
   images: {
-    unoptimized: true,
+    unoptimized: true, // Disable default image optimization
   },
-  // Adicione esta linha se seu repositório não estiver na raiz do domínio
-  // Por exemplo, se o repositório for username.github.io/repo-name
-  basePath: process.env.NODE_ENV === 'production' ? '/Software-requisitos-website' : '',
-  trailingSlash: true,
+  assetPrefix: isProd ? '/your-repository-name/' : '',
+  basePath: isProd ? '/your-repository-name' : '',
+  output: 'export'
 };
 
 export default nextConfig;
