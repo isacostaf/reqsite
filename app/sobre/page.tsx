@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { TopicTabs } from "@/components/topic-tabs"
 import { BookOpen, Target, Clock, Settings, PenToolIcon as Tool, Users } from "lucide-react"
 
+
 export default function SobrePage() {
   const [activeTab, setActiveTab] = useState("nicho1")
 
@@ -473,8 +474,12 @@ export default function SobrePage() {
     },
   }
 
-  const currentTopic = topicContent[activeTab]
+  
 
+
+
+  const currentTopic = topicContent[activeTab as keyof typeof topicContent] || topicContent["nicho1"];
+  
   return (
     <div className="space-y-8">
       <div className="text-center space-y-2 py-6">
