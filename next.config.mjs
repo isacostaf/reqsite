@@ -1,14 +1,29 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-const repo = 'reqsite';
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true, // Disable default image optimization
+    unoptimized: true,
   },
-  assetPrefix: isProd ? '/reqsite/' : '',
-  basePath: isProd ? '/reqsite' : '',
-  output: 'export'
+  output: 'export',
+  basePath: '/reqsite',
+  assetPrefix: '/reqsite',
+  distDir: 'dist',
+  trailingSlash: true,
+  // Ensure CSS is handled correctly
+  compiler: {
+    removeConsole: false,
+  },
+  experimental: {
+    optimizeCss: true,
+  },
+  // Ensure CSS is properly handled
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+    });
+    return config;
+  },
 };
 
 export default nextConfig;
